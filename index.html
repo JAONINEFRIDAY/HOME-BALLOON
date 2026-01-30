@@ -1,113 +1,60 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME BALLOON</title>
 
-/* BODY */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    Helvetica, Arial, sans-serif;
-  color: #111;
-  background: #fff;
-}
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-/* NAVBAR */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 48px;
-  border-bottom: 1px solid #eee;
-}
+<body>
 
-.logo {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="logo">HOME BALLOON</div>
+    <nav>
+      <a href="#">SHOP</a>
+      <a href="#">ABOUT</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
 
-.nav a {
-  margin-left: 32px;
-  text-decoration: none;
-  font-size: 13px;
-  color: #111;
-  letter-spacing: 1px;
-}
+  <!-- HERO -->
+  <section class="hero">
+    <h1>HOME BALLOON</h1>
+    <p>Original balloon in Suratthani</p>
+  </section>
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 140px 20px 120px;
-}
+  <!-- PRODUCTS -->
+  <section class="products">
 
-.hero h1 {
-  font-size: 56px;
-  font-weight: 800;
-  letter-spacing: 6px;
-}
+    <div class="item">
+      <img src="IMG_2447.jpeg" alt="Balloon 1">
+    </div>
 
-.hero p {
-  margin-top: 16px;
-  font-size: 14px;
-  color: #777;
-}
+    <div class="item">
+      <img src="IMG_2448.jpeg" alt="Balloon 2">
+    </div>
 
-/* PRODUCTS GRID */
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 60px;
-}
+    <div class="item">
+      <img src="IMG_2450.jpeg" alt="Balloon 3">
+    </div>
 
-/* PRODUCT ITEM */
-.item {
-  width: 100%;
-  aspect-ratio: 1 / 1;     /* ทุกภาพสี่เหลี่ยมเท่ากัน */
-  overflow: hidden;
-  background: #f4f4f4;
-  position: relative;
-}
+    <div class="item">
+      <img src="IMG_2451.jpeg" alt="Balloon 4">
+    </div>
 
-/* IMAGE */
-.item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* ครอปอัตโนมัติ ไม่บิด */
-  transition: transform 0.4s ease;
-}
+    <div class="item">
+      <img src="IMG_2452.jpeg" alt="Balloon 5">
+    </div>
 
-/* HOVER EFFECT */
-.item:hover img {
-  transform: scale(1.05);
-}
+    <div class="item">
+      <img src="IMG_2459.jpeg" alt="Balloon 6">
+    </div>
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
-  }
-}
+  </section>
 
-@media (max-width: 600px) {
-  .nav {
-    padding: 16px 20px;
-  }
-
-  .hero {
-    padding: 100px 20px 80px;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-    letter-spacing: 4px;
-  }
-
-  .products {
-    grid-template-columns: 1fr;
-    padding: 24px;
-  }
-}
+</body>
+</html>
