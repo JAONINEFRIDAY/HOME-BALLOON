@@ -1,20 +1,25 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  background: #ffffff;
   color: #111;
-  position: relative;
-  z-index: 1;
 }
 
-/* NAV */
+/* =========================
+   NAVBAR
+========================= */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -24,22 +29,26 @@ body {
 
 .logo {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 
-.nav a {
+.nav nav a {
   margin-left: 32px;
   text-decoration: none;
-  font-size: 13px;
   color: #111;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
   text-align: center;
-  padding: 140px 20px 120px;
+  padding: 160px 20px 120px;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero h1 {
@@ -54,7 +63,47 @@ body {
   color: #777;
 }
 
-/* PRODUCTS GRID */
+/* =========================
+   FLOATING BALLOONS
+========================= */
+.floating-balloons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.balloon {
+  position: absolute;
+  width: 90px;
+  height: 120px;
+  background: rgba(233, 198, 198, 0.4);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: rgba(200, 200, 200, 0.6);
+}
+
+.b1 { left: 10%; top: 20%; animation-delay: 0s; }
+.b2 { left: 30%; top: 60%; animation-delay: 2s; }
+.b3 { left: 65%; top: 30%; animation-delay: 4s; }
+.b4 { left: 85%; top: 65%; animation-delay: 1s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* =========================
+   PRODUCTS GRID
+========================= */
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -62,7 +111,6 @@ body {
   padding: 60px;
 }
 
-/* PRODUCT ITEM */
 .item {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -74,54 +122,16 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
 }
 
 .item:hover img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-/* FLOATING BALLOONS */
-.floating-balloons {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.balloon {
-  position: absolute;
-  width: 60px;
-  height: 80px;
-  background: rgba(230, 200, 200, 0.35);
-  border-radius: 50% 50% 50% 50%;
-  animation: floatUp linear infinite;
-}
-
-.balloon::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 30px;
-  background: rgba(200,200,200,.5);
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Balloon positions */
-.b1 { left: 10%; animation-duration: 28s; }
-.b2 { left: 30%; animation-duration: 32s; width: 50px; height: 70px; }
-.b3 { left: 65%; animation-duration: 30s; }
-.b4 { left: 85%; animation-duration: 35s; width: 45px; height: 65px; }
-
-/* Animation */
-@keyframes floatUp {
-  from { top: 110%; }
-  to { top: -20%; }
-}
-
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 1024px) {
   .products {
     grid-template-columns: repeat(2, 1fr);
@@ -130,17 +140,43 @@ body {
 }
 
 @media (max-width: 600px) {
+
   .nav {
-    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .nav nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav nav a {
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 100px 20px 60px;
   }
 
   .hero h1 {
-    font-size: 36px;
-    letter-spacing: 4px;
+    font-size: 34px;
+    letter-spacing: 3px;
+  }
+
+  .hero p {
+    font-size: 13px;
   }
 
   .products {
     grid-template-columns: 1fr;
     padding: 24px;
+  }
+
+  .floating-balloons {
+    opacity: 0.25;
   }
 }
