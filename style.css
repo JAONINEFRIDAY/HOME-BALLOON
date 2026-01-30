@@ -24,7 +24,7 @@ body {
 }
 
 .nav-wrap {
-  max-width: 520px;              /* ⭐ หายใจขึ้น */
+  max-width: 480px;
   margin: auto;
   padding: 14px 16px;
   display: flex;
@@ -35,16 +35,16 @@ body {
 .logo {
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
 nav a {
   margin-left: 18px;
   text-decoration: none;
   font-size: 12px;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #111;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 nav a:hover {
@@ -52,18 +52,17 @@ nav a:hover {
 }
 
 /* ===================== */
-/* BANNER (PERFECT RATIO) */
+/* BANNER */
 /* ===================== */
 .banner {
-  margin-top: 56px;
-  margin-bottom: 32px;           /* ⭐ เว้นหายใจจาก HERO */
+  margin-top: 56px; /* กัน nav */
   width: 100%;
   overflow: hidden;
 }
 
 .banner img {
   width: 100%;
-  height: 54vh;                  /* ⭐ GOLDEN RATIO มือถือ */
+  height: 52vh;          /* ⭐ สำคัญ: ไม่สูงเกิน */
   object-fit: cover;
   display: block;
 }
@@ -72,7 +71,7 @@ nav a:hover {
 /* HERO */
 /* ===================== */
 .hero {
-  padding: 4px 16px 28px;        /* ⭐ บาง สะอาด */
+  padding: 32px 16px 28px; /* ⭐ เพิ่มลมหายใจ */
   text-align: center;
 }
 
@@ -82,7 +81,7 @@ nav a:hover {
 }
 
 .hero p {
-  margin-top: 6px;
+  margin-top: 10px;
   font-size: 13px;
   color: #777;
 }
@@ -91,13 +90,13 @@ nav a:hover {
 /* GALLERY */
 /* ===================== */
 .gallery {
-  max-width: 520px;
+  max-width: 480px;
   margin: auto;
-  padding: 8px 12px 80px;        /* ⭐ ต่อเนียนจาก HERO */
+  padding: 16px 12px 88px; /* ⭐ ด้านล่างโปร่ง */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 12px;
-  row-gap: 28px;                 /* ⭐ ดูแพงขึ้น */
+  column-gap: 14px;
+  row-gap: 30px;
   position: relative;
   z-index: 2;
 }
@@ -117,15 +116,15 @@ nav a:hover {
 
 /* PRODUCT NAME */
 .product-name {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 12px;
   color: #666;
-  letter-spacing: 1.2px;
-  line-height: 1.5;
+  letter-spacing: 1px;
+  line-height: 1.6;
 }
 
 /* ===================== */
-/* BALLOON FLOAT BACKGROUND */
+/* BALLOON FLOAT BG */
 /* ===================== */
 .balloon-bg {
   position: fixed;
@@ -139,21 +138,21 @@ nav a:hover {
   bottom: -120px;
   width: 48px;
   height: 64px;
-  background: rgba(255, 210, 210, 0.25); /* ⭐ เบาลง ดูแพง */
+  background: rgba(255, 210, 210, 0.25); /* เบาลง */
   border-radius: 50%;
   animation: floatUp 16s linear infinite;
 }
 
-.balloon-bg span:nth-child(1) { left: 8%; animation-delay: 0s; }
-.balloon-bg span:nth-child(2) { left: 28%; animation-delay: 4s; }
-.balloon-bg span:nth-child(3) { left: 50%; animation-delay: 7s; }
-.balloon-bg span:nth-child(4) { left: 72%; animation-delay: 10s; }
-.balloon-bg span:nth-child(5) { left: 90%; animation-delay: 13s; }
+.balloon-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.balloon-bg span:nth-child(2) { left: 30%; animation-delay: 4s; }
+.balloon-bg span:nth-child(3) { left: 50%; animation-delay: 8s; }
+.balloon-bg span:nth-child(4) { left: 70%; animation-delay: 12s; }
+.balloon-bg span:nth-child(5) { left: 85%; animation-delay: 16s; }
 
 @keyframes floatUp {
   from {
     transform: translateY(0);
-    opacity: 0.9;
+    opacity: 0.8;
   }
   to {
     transform: translateY(-130vh);
@@ -166,7 +165,7 @@ nav a:hover {
 /* ===================== */
 @media (min-width: 768px) {
   .banner img {
-    height: 78vh;                /* ⭐ เต็มตาเว็บแฟชั่น */
+    height: 70vh; /* Desktop ดูอลัง */
   }
 
   .gallery {
@@ -176,6 +175,6 @@ nav a:hover {
   }
 
   .hero h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
 }
