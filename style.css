@@ -8,6 +8,7 @@
 body {
   background: #fff;
   color: #333;
+  overflow-x: hidden;
 }
 
 /* ===== NAV ===== */
@@ -23,22 +24,38 @@ body {
 }
 
 .logo {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 4px;
   color: #ff7eb9;
 }
 
 nav a {
-  margin-left: 24px;
-  font-weight: 700;
+  margin-left: 28px;
+  font-weight: 800;
   letter-spacing: 2px;
   text-decoration: none;
   color: #ff7eb9;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #ff7eb9;
+  transition: .3s;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* ===== HERO ===== */
 .hero {
-  padding: 120px 20px 80px;
+  padding: 140px 20px 100px;
   text-align: center;
   overflow: hidden;
 }
@@ -48,97 +65,40 @@ nav a {
   display: inline-block;
 }
 
+/* ===== TITLE ===== */
 .title {
-  font-size: clamp(3.5rem, 8vw, 5rem);
-  letter-spacing: 8px;
+  font-size: clamp(3.8rem, 8vw, 5.5rem);
+  letter-spacing: 10px;
+  font-weight: 900;
   color: #ff7eb9;
   text-shadow:
     0 0 12px rgba(255,126,185,.6),
-    0 0 26px rgba(255,182,213,.7);
+    0 0 30px rgba(255,182,213,.8);
   animation: floatText 4s ease-in-out infinite;
 }
 
 .subtitle {
-  margin-top: 14px;
-  color: #999;
+  margin-top: 18px;
+  color: #aaa;
+  letter-spacing: 2px;
 }
 
-/* ===== CHARACTERS ===== */
-.character {
+/* ===== DISNEY SPARKLES ===== */
+.title::after {
+  content: "✨ ✨ ✨";
   position: absolute;
-  width: 120px;
-  animation: floatChar 5s ease-in-out infinite;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px;
+  font-size: 22px;
+  animation: sparkle 3s infinite alternate;
 }
 
-.character.left {
-  left: -150px;
-  top: 10px;
+@keyframes sparkle {
+  from { opacity: .3; transform: translateX(-50%) scale(1); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.2); }
 }
 
-.character.right {
-  right: -150px;
-  top: 30px;
-  animation-delay: 1.5s;
-}
-
-/* ===== BALLOONS ===== */
-.balloon {
-  position: absolute;
-  bottom: -40px;
-  width: 28px;
-  height: 38px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, #ffb6d5);
-  opacity: 0.6;
-  animation: balloonFloat 9s linear infinite;
-}
-
-.b1 { left: 20%; animation-delay: 0s; }
-.b2 { left: 50%; animation-delay: 3s; }
-.b3 { left: 80%; animation-delay: 6s; }
-
-/* ===== GALLERY ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 40px;
-  padding: 60px 40px;
-}
-
-.item {
-  background: #fff;
-  border-radius: 24px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
-
-.item img {
-  width: 100%;
-  border-radius: 18px;
-}
-
-.item p {
-  margin-top: 14px;
-  color: #ff7eb9;
-}
-
-/* ===== ANIMATION ===== */
-@keyframes floatText {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes floatChar {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
-@keyframes balloonFloat {
-  to {
-    transform: translateY(-120vh);
-  }
-}
 /* ===== TOON CHARACTERS ===== */
 .toon {
   position: absolute;
@@ -148,46 +108,86 @@ nav a {
 }
 
 .toon-left {
-  left: -140px;
+  left: -160px;
   top: 20px;
 }
 
 .toon-right {
-  right: -140px;
+  right: -160px;
   top: 40px;
-  animation-delay: 1.5s;
+  animation-delay: 1.8s;
 }
 
-/* หัวตัวละคร */
+/* หัว */
 .toon .head {
   width: 80px;
   height: 80px;
   background: radial-gradient(circle at 30% 30%, #fff, #ffd6e8);
   border-radius: 50%;
   margin: auto;
-  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
 }
 
-/* เชือกลูกโป่ง */
+/* เชือก */
 .balloon-string {
   width: 2px;
-  height: 40px;
-  background: #ccc;
-  margin: 4px auto;
+  height: 44px;
+  background: linear-gradient(#ddd, #bbb);
+  margin: 6px auto;
 }
 
 /* ลูกโป่ง */
 .balloon-shape {
-  width: 40px;
-  height: 52px;
+  width: 42px;
+  height: 56px;
   background: radial-gradient(circle at 30% 30%, #fff, #ff9acb);
   border-radius: 50%;
   margin: auto;
-  box-shadow: 0 0 18px rgba(255,154,203,.8);
+  box-shadow:
+    0 0 20px rgba(255,154,203,.9),
+    inset 0 0 10px rgba(255,255,255,.8);
 }
 
-/* Animation */
-@keyframes toonFloat {
+/* ===== GALLERY ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  padding: 80px 40px;
+}
+
+.item {
+  background: #fff;
+  border-radius: 26px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+  transition: .4s;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+}
+
+.item img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.item p {
+  margin-top: 16px;
+  color: #ff7eb9;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes floatText {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+@keyframes toonFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
 }
