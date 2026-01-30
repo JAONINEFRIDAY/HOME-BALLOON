@@ -1,50 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Little Present</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css1.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME BALLOON</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="top">
-  <h1>Little Present</h1>
-  <p>for my favorite person ♡</p>
-</header>
-
-<section class="page">
-
-  <div class="paper">
-    <h2>Making Something Special</h2>
-    <div class="letter">
-      <img src="images/photo1.jpg" class="polaroid">
-      <p>
-        This is a small website  
-        made just for you.  
-        Not perfect, but full of love 🤍
-      </p>
-    </div>
+  <!-- BALLOON FLOAT BACKGROUND -->
+  <div class="balloon-bg">
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
 
-  <div class="paper">
-    <h2>Memories</h2>
-    <div class="grid">
-      <img src="images/photo2.jpg">
-      <img src="images/photo3.jpg">
-      <img src="images/photo4.jpg">
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-wrap">
+      <div class="logo reveal">HOME BALLOON</div>
+      <nav>
+        <a href="#" class="reveal delay-1">SHOP</a>
+        <a href="#" class="reveal delay-2">ABOUT</a>
+        <a href="#" class="reveal delay-3">CONTACT</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="paper">
-    <h2>One Last Thing</h2>
-    <p class="center">
-      Thank you for being in my life.  
-      I hope this made you smile :)
+  <!-- BANNER -->
+  <section class="banner reveal">
+    <img src="images/banner.jpg" alt="Home Balloon">
+  </section>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="reveal">HOME BALLOON</h1>
+    <p class="reveal delay-1">Original balloon in Suratthani</p>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="item reveal">
+      <img src="images/g1.jpg">
+      <p class="product-name">Rose Gold Balloon Set</p>
+    </div>
+
+    <div class="item reveal delay-1">
+      <img src="images/g2.jpg">
+      <p class="product-name">Luxury Flower Balloon</p>
+    </div>
+
+    <div class="item reveal delay-2">
+      <img src="images/g3.jpg">
+      <p class="product-name">Pastel Balloon Bouquet</p>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- LITTLE PRESENT -->
+  <!-- ===================== -->
+  <section class="present reveal">
+    <h2>Little Present</h2>
+    <p class="present-sub">for my favorite person ♡</p>
+
+    <div class="present-box">
+      <img src="images/envelope.png" class="envelope">
+      <div class="present-photo">
+        <img src="images/present-photo.jpg">
+      </div>
+    </div>
+
+    <p class="present-text">
+      This is a small website made just for you.<br>
+      Not perfect, but full of love 🤍
     </p>
-  </div>
+  </section>
 
-</section>
+  <!-- SCROLL REVEAL -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
