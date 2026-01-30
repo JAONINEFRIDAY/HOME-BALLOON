@@ -7,8 +7,8 @@
 
 body {
   background: #fff;
-  overflow-x: hidden;
   color: #111;
+  overflow-x: hidden;
 }
 
 /* NAV */
@@ -17,8 +17,8 @@ body {
   top: 0;
   width: 100%;
   background: #fff;
-  z-index: 10;
   border-bottom: 1px solid #eee;
+  z-index: 10;
 }
 
 .nav-wrap {
@@ -32,40 +32,39 @@ body {
 
 .logo {
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 
 nav a {
-  margin-left: 16px;
+  margin-left: 14px;
   text-decoration: none;
   color: #111;
-  font-size: 12px;
-  letter-spacing: 1px;
+  font-size: 13px;
 }
 
-/* HERO (ลดช่องว่างบน) */
+/* HERO */
 .hero {
-  margin-top: 60px; /* เดิมเยอะ → ลด */
-  padding: 40px 16px 24px;
+  margin-top: 60px;       /* ลดช่องว่างบน */
+  padding: 24px 16px 12px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 34px;
   letter-spacing: 4px;
 }
 
 .hero p {
   margin-top: 6px;
-  color: #777;
   font-size: 13px;
+  color: #777;
 }
 
 /* GALLERY */
 .gallery {
   max-width: 480px;
-  margin: auto;
+  margin: 0 auto;
   padding: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -74,21 +73,21 @@ nav a {
 
 .gallery img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1;     /* 🔥 สี่เหลี่ยมแบบ humanmade */
   object-fit: cover;
-  border-radius: 0; /* 🔥 Human Made */
+  border-radius: 0;        /* เหลี่ยม */
 }
 
-/* BALLOON FLOAT (ลอยจากล่างขึ้นบนจริง) */
+/* BALLOON FLOAT */
 .balloon-bg span {
   position: fixed;
   bottom: -120px;
   width: 48px;
-  height: 68px;
-  background: rgba(255, 210, 210, 0.35);
+  height: 64px;
+  background: rgba(255, 200, 200, 0.35);
   border-radius: 50%;
   animation: floatUp 16s linear infinite;
-  z-index: 0;
+  z-index: -1;
 }
 
 .balloon-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
@@ -103,7 +102,7 @@ nav a {
     opacity: 1;
   }
   to {
-    transform: translateY(-140vh);
+    transform: translateY(-120vh);
     opacity: 0;
   }
 }
