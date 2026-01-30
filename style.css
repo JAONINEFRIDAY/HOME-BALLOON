@@ -7,9 +7,11 @@
 
 /* BODY */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   background: #fff;
   color: #111;
+  position: relative;
+  z-index: 1;
 }
 
 /* NAV */
@@ -18,30 +20,31 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 24px 48px;
-  border-bottom: 1px solid #eee;
 }
 
 .logo {
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .nav a {
   margin-left: 32px;
   text-decoration: none;
-  color: #111;
   font-size: 13px;
+  color: #111;
   letter-spacing: 1px;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding: 140px 20px 100px;
+  padding: 140px 20px 120px;
 }
 
 .hero h1 {
   font-size: 56px;
+  font-weight: 800;
   letter-spacing: 6px;
 }
 
@@ -51,7 +54,7 @@ body {
   color: #777;
 }
 
-/* PRODUCTS */
+/* PRODUCTS GRID */
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -59,7 +62,9 @@ body {
   padding: 60px;
 }
 
+/* PRODUCT ITEM */
 .item {
+  width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #f4f4f4;
@@ -73,7 +78,7 @@ body {
 }
 
 .item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* FLOATING BALLOONS */
@@ -81,47 +86,61 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .balloon {
   position: absolute;
-  bottom: -150px;
   width: 60px;
   height: 80px;
-  border-radius: 50%;
-  animation: floatUp 18s infinite linear;
-  opacity: 0.5;
+  background: rgba(230, 200, 200, 0.35);
+  border-radius: 50% 50% 50% 50%;
+  animation: floatUp linear infinite;
 }
 
 .balloon::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: -25px;
-  left: 50%;
   width: 2px;
-  height: 25px;
-  background: rgba(0,0,0,0.2);
+  height: 30px;
+  background: rgba(200,200,200,.5);
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* COLORS + POSITIONS */
-.b1 { left: 10%; background: #d9a3a3; animation-delay: 0s; }
-.b2 { left: 30%; background: #f1c6c6; animation-delay: 4s; }
-.b3 { left: 55%; background: #cfa0a0; animation-delay: 8s; }
-.b4 { left: 75%; background: #e6bcbc; animation-delay: 2s; }
-.b5 { left: 90%; background: #d8b0b0; animation-delay: 6s; }
+/* Balloon positions */
+.b1 { left: 10%; animation-duration: 28s; }
+.b2 { left: 30%; animation-duration: 32s; width: 50px; height: 70px; }
+.b3 { left: 65%; animation-duration: 30s; }
+.b4 { left: 85%; animation-duration: 35s; width: 45px; height: 65px; }
 
+/* Animation */
 @keyframes floatUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-120vh); }
+  from { top: 110%; }
+  to { top: -20%; }
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .products { grid-template-columns: repeat(2, 1fr); }
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+  }
 }
 
 @media (max-width: 600px) {
-  .products { grid-template-columns: 1fr; padding: 24px; }
-  .hero h1 { font-size: 36px; }
+  .nav {
+    padding: 16px 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
 }
