@@ -1,19 +1,28 @@
+/* ===================== */
+/* RESET */
+/* ===================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', 'Comic Sans MS', system-ui, sans-serif;
 }
 
 body {
-  background: #fff;
+  background: linear-gradient(180deg, #fff7fb 0%, #ffffff 40%);
   color: #444;
+  overflow-x: hidden;
 }
 
-/* ===== NAV ===== */
+/* ===================== */
+/* NAV */
+/* ===================== */
 .nav {
-  background: white;
-  border-bottom: 1px dashed #ffd6e8;
+  background: rgba(255,255,255,0.95);
+  border-bottom: 2px dashed #ffd6e8;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .nav-wrap {
@@ -26,8 +35,10 @@ body {
 }
 
 .logo {
-  font-weight: 600;
-  color: #ff7eb9;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ff6fb1;
+  letter-spacing: 1px;
 }
 
 nav a {
@@ -35,61 +46,96 @@ nav a {
   text-decoration: none;
   color: #8bb1ff;
   font-size: 14px;
+  font-weight: 600;
 }
 
-/* ===== BANNER ===== */
+nav a:hover {
+  color: #ff6fb1;
+}
+
+/* ===================== */
+/* BANNER */
+/* ===================== */
 .banner img {
   width: 100%;
-  border-radius: 0 0 28px 28px;
+  height: 52vh;
+  object-fit: cover;
+  border-radius: 0 0 36px 36px;
 }
 
-/* ===== HERO ===== */
+/* ===================== */
+/* HERO */
+/* ===================== */
 .hero {
   text-align: center;
-  padding: 40px 20px;
+  padding: 48px 20px 42px;
 }
 
 .hero h1 {
-  font-size: 32px;
-  color: #ff7eb9;
-  letter-spacing: 2px;
+  font-size: 34px;
+  color: #ff6fb1;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+/* ตัวอักษร 2 ชั้น */
+.hero h1::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  color: #ffd1e8;
+  z-index: -1;
 }
 
 .hero p {
-  margin-top: 8px;
+  margin-top: 10px;
   color: #9ab6ff;
+  font-size: 14px;
 }
 
-/* ===== GALLERY ===== */
+/* ===================== */
+/* GALLERY */
+/* ===================== */
 .gallery {
   max-width: 1000px;
   margin: auto;
-  padding: 40px 20px 80px;
+  padding: 50px 20px 90px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 28px;
+  gap: 30px;
 }
 
 .item {
-  background: #fff;
-  border-radius: 28px;
+  background: #ffffff;
+  border-radius: 30px;
   padding: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
 .item img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 22px;
 }
 
 .item p {
-  margin-top: 12px;
+  margin-top: 14px;
   text-align: center;
   color: #ff85c1;
   font-size: 14px;
+  font-weight: 600;
 }
 
-/* ===== BALLOON BG ===== */
+/* ===================== */
+/* BALLOON BACKGROUND */
+/* ===================== */
 .balloon-bg {
   position: fixed;
   inset: 0;
@@ -99,18 +145,49 @@ nav a {
 
 .balloon-bg span {
   position: absolute;
-  bottom: -100px;
-  width: 26px;
-  height: 36px;
+  bottom: -120px;
+  width: 32px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(255, 173, 214, 0.25);
-  animation: float 22s linear infinite;
+  opacity: 0.7;
+  animation: float 20s linear infinite;
 }
 
-.balloon-bg span:nth-child(1){left:15%}
-.balloon-bg span:nth-child(2){left:50%; animation-delay:8s}
-.balloon-bg span:nth-child(3){left:80%; animation-delay:14s}
+.balloon-bg span:nth-child(1){
+  left: 15%;
+  background: #ffb3d9;
+}
+
+.balloon-bg span:nth-child(2){
+  left: 45%;
+  background: #b3d7ff;
+  animation-delay: 6s;
+}
+
+.balloon-bg span:nth-child(3){
+  left: 75%;
+  background: #fff2a8;
+  animation-delay: 12s;
+}
 
 @keyframes float {
-  to { transform: translateY(-120vh); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-130vh);
+  }
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+@media (min-width: 768px) {
+  .banner img {
+    height: 65vh;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
 }
