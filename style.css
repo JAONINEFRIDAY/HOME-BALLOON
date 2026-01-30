@@ -52,7 +52,7 @@ nav a:hover {
 /* HERO */
 .hero {
   margin-top: 56px;
-  padding: 32px 16px 20px;
+  padding: 32px 16px 24px;
   text-align: center;
 }
 
@@ -74,9 +74,10 @@ nav a:hover {
   padding: 12px 12px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  column-gap: 12px;
+  row-gap: 26px; /* ⭐ เพิ่มช่องไฟบน-ล่าง */
   position: relative;
-  z-index: 2; /* อยู่เหนือบอลลูน */
+  z-index: 2;
 }
 
 /* ITEM */
@@ -84,6 +85,7 @@ nav a:hover {
   text-align: center;
 }
 
+/* IMAGE */
 .gallery img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -93,11 +95,11 @@ nav a:hover {
 
 /* PRODUCT NAME */
 .product-name {
-  margin-top: 6px;
+  margin-top: 10px; /* ⭐ ช่องไฟระหว่างรูปกับชื่อ */
   font-size: 12px;
   color: #666;
   letter-spacing: 1px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* BALLOON FLOAT BACKGROUND */
@@ -139,7 +141,8 @@ nav a:hover {
 @media (min-width: 768px) {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    column-gap: 16px;
+    row-gap: 32px;
   }
 
   .hero h1 {
