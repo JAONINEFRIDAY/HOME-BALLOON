@@ -8,10 +8,9 @@
 body {
   background: #fff;
   color: #444;
-  overflow-x: hidden;
 }
 
-/* ================= NAV ================= */
+/* ===== NAV ===== */
 .nav {
   border-bottom: 1px dashed #ffd6e8;
 }
@@ -19,7 +18,7 @@ body {
 .nav-wrap {
   max-width: 1100px;
   margin: auto;
-  padding: 18px 20px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,141 +26,53 @@ body {
 
 .logo {
   font-weight: 800;
-  letter-spacing: 3px;
   color: #ff7eb9;
+  letter-spacing: 3px;
 }
 
 .menu a {
-  margin-left: 28px;
+  margin-left: 24px;
   font-weight: 800;
-  letter-spacing: 2px;
-  text-decoration: none;
   color: #ff7eb9;
-  position: relative;
+  text-decoration: none;
 }
 
-.menu a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg,#ff7eb9,#8bb1ff);
-  transition: .4s;
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero {
-  position: relative;
   text-align: center;
-  padding: 120px 20px 160px;
+  padding: 120px 20px 80px;
 }
 
 .title {
-  position: relative;
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  letter-spacing: 6px;
-  animation: titleFloat 4s ease-in-out infinite;
-}
-
-.layer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.layer.back {
-  top: 10px;
-  color: #ffd1e8;
-  filter: blur(4px);
-}
-
-.layer.front {
-  position: relative;
+  font-size: clamp(3rem, 7vw, 5rem);
   color: #ff7eb9;
+  letter-spacing: 6px;
   text-shadow:
-    0 0 10px #fff,
-    0 0 25px #ffd1e8,
-    0 0 40px #8bb1ff;
+    0 0 10px #ffd1e8,
+    0 0 30px #8bb1ff;
+  animation: float 4s ease-in-out infinite;
 }
 
 .subtitle {
-  margin-top: 16px;
+  margin-top: 12px;
   color: #8bb1ff;
-  letter-spacing: 1px;
 }
 
-/* ================= CHARACTER ================= */
-.char {
-  position: absolute;
-  width: 120px;
-  height: 240px;
-  animation: charFloat 5s ease-in-out infinite;
-}
-
-.char.left { left: 8%; top: 48%; }
-.char.right { right: 8%; top: 45%; animation-delay: 1s; }
-
-.char .head {
-  width: 80px;
-  height: 80px;
-  background: #ffd6e8;
-  border-radius: 50%;
-  margin: auto;
-  box-shadow: 0 0 25px rgba(255,126,185,.6);
-}
-
-.char .body {
-  width: 70px;
-  height: 100px;
-  background: #8bb1ff;
-  border-radius: 40px;
-  margin: 10px auto;
-}
-
-.char .balloon {
-  position: absolute;
-  top: -90px;
-  left: 50%;
-  width: 50px;
-  height: 70px;
-  border-radius: 50%;
-  background: radial-gradient(circle at top,#fff,#ff7eb9);
-  transform: translateX(-50%);
-  animation: balloonFloat 3.5s ease-in-out infinite;
-}
-
-.char .balloon::after {
-  content: '';
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  width: 2px;
-  height: 35px;
-  background: #ff7eb9;
-}
-
-/* ================= GALLERY ================= */
+/* ===== GALLERY ===== */
 .gallery {
   max-width: 1000px;
   margin: auto;
   padding: 40px 20px 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
   gap: 28px;
 }
 
 .item {
   background: #fff;
   border-radius: 28px;
-  padding: 14px;
-  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
 }
 
 .item img {
@@ -175,45 +86,8 @@ body {
   color: #ff85c1;
 }
 
-/* ================= BALLOON BG ================= */
-.balloon-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.balloon-bg span {
-  position: absolute;
-  bottom: -120px;
-  width: 28px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255,173,214,.25);
-  animation: bgFloat 22s linear infinite;
-}
-
-.balloon-bg span:nth-child(1){left:10%}
-.balloon-bg span:nth-child(2){left:35%; animation-delay:6s}
-.balloon-bg span:nth-child(3){left:65%; animation-delay:12s}
-.balloon-bg span:nth-child(4){left:85%; animation-delay:18s}
-
-/* ================= ANIMATION ================= */
-@keyframes charFloat {
+/* ===== ANIMATION ===== */
+@keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-25px); }
-}
-
-@keyframes balloonFloat {
-  0%,100% { transform: translate(-50%,0); }
-  50% { transform: translate(-50%,-25px); }
-}
-
-@keyframes titleFloat {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-}
-
-@keyframes bgFloat {
-  to { transform: translateY(-130vh); }
+  50% { transform: translateY(-12px); }
 }
