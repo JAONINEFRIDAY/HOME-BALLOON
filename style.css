@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== NAV ===== */
+/* ================= NAV ================= */
 .nav {
   border-bottom: 1px dashed #ffd6e8;
 }
@@ -19,126 +19,149 @@ body {
 .nav-wrap {
   max-width: 1100px;
   margin: auto;
-  padding: 14px 20px;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-weight: 800;
-  color: #ff6fb1;
+  letter-spacing: 3px;
+  color: #ff7eb9;
 }
 
-/* ===== HERO DISNEY ===== */
-.hero-disney {
+.menu a {
+  margin-left: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #ff7eb9;
   position: relative;
-  height: 90vh;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg,#ff7eb9,#8bb1ff);
+  transition: .4s;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
   text-align: center;
-  padding-top: 120px;
-  overflow: hidden;
+  padding: 120px 20px 160px;
 }
 
-/* TITLE */
-.title-animated {
-  font-size: 54px;
-  font-weight: 900;
+.title {
+  position: relative;
+  font-size: clamp(3.5rem, 8vw, 6rem);
   letter-spacing: 6px;
-  color: #ff6fb1;
-  animation: bounce 3s ease-in-out infinite;
-  text-shadow:
-    -3px -3px 0 #fff,
-     3px -3px 0 #fff,
-    -3px  3px 0 #fff,
-     3px  3px 0 #fff,
-     0 10px 0 #ffd1e8,
-     0 18px 30px rgba(255,111,177,.45);
+  animation: titleFloat 4s ease-in-out infinite;
 }
 
-/* subtitle */
+.layer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.layer.back {
+  top: 10px;
+  color: #ffd1e8;
+  filter: blur(4px);
+}
+
+.layer.front {
+  position: relative;
+  color: #ff7eb9;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 25px #ffd1e8,
+    0 0 40px #8bb1ff;
+}
+
 .subtitle {
   margin-top: 16px;
-  color: #9ab6ff;
+  color: #8bb1ff;
+  letter-spacing: 1px;
 }
 
-/* bounce animation */
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
-/* ===== SPARKLES ===== */
-.sparkle {
+/* ================= CHARACTER ================= */
+.char {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  box-shadow:
-    0 0 10px #ffd1ff,
-    0 0 20px #ffd1ff;
+  width: 120px;
+  height: 240px;
+  animation: charFloat 5s ease-in-out infinite;
+}
+
+.char.left { left: 8%; top: 48%; }
+.char.right { right: 8%; top: 45%; animation-delay: 1s; }
+
+.char .head {
+  width: 80px;
+  height: 80px;
+  background: #ffd6e8;
   border-radius: 50%;
-  top: 40%;
-  left: 45%;
-  animation: sparkle 2.5s infinite;
+  margin: auto;
+  box-shadow: 0 0 25px rgba(255,126,185,.6);
 }
 
-.sparkle.delay {
-  top: 30%;
-  left: 55%;
-  animation-delay: 1.2s;
+.char .body {
+  width: 70px;
+  height: 100px;
+  background: #8bb1ff;
+  border-radius: 40px;
+  margin: 10px auto;
 }
 
-@keyframes sparkle {
-  0% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1.4); }
-  100% { opacity: 0; transform: scale(0); }
-}
-
-/* ===== CHARACTERS ===== */
-.character {
+.char .balloon {
   position: absolute;
-  bottom: 80px;
-  width: 140px;
-  animation: floatChar 4s ease-in-out infinite;
+  top: -90px;
+  left: 50%;
+  width: 50px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top,#fff,#ff7eb9);
+  transform: translateX(-50%);
+  animation: balloonFloat 3.5s ease-in-out infinite;
 }
 
-.character.left { left: 6%; }
-.character.right { right: 6%; animation-delay: 1.5s; }
-
-@keyframes floatChar {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-/* ===== BALLOONS ===== */
-.float-balloon {
+.char .balloon::after {
+  content: '';
   position: absolute;
-  width: 90px;
-  animation: floatBalloon 6s ease-in-out infinite;
+  bottom: -35px;
+  left: 50%;
+  width: 2px;
+  height: 35px;
+  background: #ff7eb9;
 }
 
-.b1 { left: 30%; top: 20%; }
-.b2 { right: 30%; top: 25%; animation-delay: 2s; }
-.b3 { left: 50%; top: 10%; animation-delay: 4s; }
-
-@keyframes floatBalloon {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-30px); }
-}
-
-/* ===== GALLERY ===== */
+/* ================= GALLERY ================= */
 .gallery {
   max-width: 1000px;
   margin: auto;
-  padding: 60px 20px 80px;
+  padding: 40px 20px 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 28px;
 }
 
 .item {
+  background: #fff;
   border-radius: 28px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
   padding: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
 }
 
 .item img {
@@ -147,26 +170,50 @@ body {
 }
 
 .item p {
+  margin-top: 12px;
   text-align: center;
-  margin-top: 10px;
   color: #ff85c1;
 }
 
-/* ===== BALLOON BG ===== */
-.balloon-bg span {
+/* ================= BALLOON BG ================= */
+.balloon-bg {
   position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.balloon-bg span {
+  position: absolute;
   bottom: -120px;
   width: 28px;
   height: 38px;
   border-radius: 50%;
   background: rgba(255,173,214,.25);
-  animation: bgFloat 20s linear infinite;
+  animation: bgFloat 22s linear infinite;
 }
 
 .balloon-bg span:nth-child(1){left:10%}
-.balloon-bg span:nth-child(2){left:50%; animation-delay:7s}
-.balloon-bg span:nth-child(3){left:80%; animation-delay:14s}
+.balloon-bg span:nth-child(2){left:35%; animation-delay:6s}
+.balloon-bg span:nth-child(3){left:65%; animation-delay:12s}
+.balloon-bg span:nth-child(4){left:85%; animation-delay:18s}
+
+/* ================= ANIMATION ================= */
+@keyframes charFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes balloonFloat {
+  0%,100% { transform: translate(-50%,0); }
+  50% { transform: translate(-50%,-25px); }
+}
+
+@keyframes titleFloat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
 
 @keyframes bgFloat {
-  to { transform: translateY(-120vh); }
+  to { transform: translateY(-130vh); }
 }
