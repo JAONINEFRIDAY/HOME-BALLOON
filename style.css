@@ -17,14 +17,14 @@ body {
   top: 0;
   width: 100%;
   background: #fff;
-  border-bottom: 1px solid #eee;
   z-index: 10;
+  border-bottom: 1px solid #eee;
 }
 
 .nav-wrap {
   max-width: 480px;
   margin: auto;
-  padding: 12px 14px;
+  padding: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,36 +37,36 @@ body {
 }
 
 nav a {
-  margin-left: 12px;
+  margin-left: 16px;
   text-decoration: none;
   color: #111;
   font-size: 12px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
-/* HERO (ลดช่องว่างด้านบนแล้ว) */
+/* HERO (ลดช่องว่างบน) */
 .hero {
-  margin-top: 60px; /* เดิม 90px → ลด */
-  padding: 40px 16px 32px;
+  margin-top: 60px; /* เดิมเยอะ → ลด */
+  padding: 40px 16px 24px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 34px;
+  font-size: 36px;
   letter-spacing: 4px;
 }
 
 .hero p {
   margin-top: 6px;
-  font-size: 13px;
   color: #777;
+  font-size: 13px;
 }
 
-/* GALLERY (Human Made style) */
+/* GALLERY */
 .gallery {
   max-width: 480px;
   margin: auto;
-  padding: 0 12px 80px;
+  padding: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -74,12 +74,12 @@ nav a {
 
 .gallery img {
   width: 100%;
-  aspect-ratio: 1 / 1;   /* บังคับสี่เหลี่ยม */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 0;      /* สำคัญ ❌ ไม่โค้ง */
+  border-radius: 0; /* 🔥 Human Made */
 }
 
-/* BALLOON FLOAT */
+/* BALLOON FLOAT (ลอยจากล่างขึ้นบนจริง) */
 .balloon-bg span {
   position: fixed;
   bottom: -120px;
@@ -88,14 +88,14 @@ nav a {
   background: rgba(255, 210, 210, 0.35);
   border-radius: 50%;
   animation: floatUp 16s linear infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
-.balloon-bg span:nth-child(1) { left: 8%; animation-delay: 0s; }
-.balloon-bg span:nth-child(2) { left: 28%; animation-delay: 4s; }
+.balloon-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.balloon-bg span:nth-child(2) { left: 30%; animation-delay: 4s; }
 .balloon-bg span:nth-child(3) { left: 50%; animation-delay: 8s; }
-.balloon-bg span:nth-child(4) { left: 72%; animation-delay: 12s; }
-.balloon-bg span:nth-child(5) { left: 90%; animation-delay: 16s; }
+.balloon-bg span:nth-child(4) { left: 70%; animation-delay: 12s; }
+.balloon-bg span:nth-child(5) { left: 85%; animation-delay: 16s; }
 
 @keyframes floatUp {
   from {
@@ -103,7 +103,7 @@ nav a {
     opacity: 1;
   }
   to {
-    transform: translateY(-120vh);
+    transform: translateY(-140vh);
     opacity: 0;
   }
 }
