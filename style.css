@@ -8,7 +8,6 @@
 body {
   background: #fff;
   color: #333;
-  overflow-x: hidden;
 }
 
 /* ===== NAV ===== */
@@ -24,33 +23,17 @@ body {
 }
 
 .logo {
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 4px;
   color: #ff7eb9;
 }
 
 nav a {
-  margin-left: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  margin-left: 26px;
+  font-weight: 900;
+  letter-spacing: 3px;
   text-decoration: none;
   color: #ff7eb9;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: #ff7eb9;
-  transition: .3s;
-}
-
-nav a:hover::after {
-  width: 100%;
 }
 
 /* ===== HERO ===== */
@@ -65,15 +48,14 @@ nav a:hover::after {
   display: inline-block;
 }
 
-/* ===== TITLE ===== */
+/* ชื่อใหญ่ */
 .title {
   font-size: clamp(3.8rem, 8vw, 5.5rem);
   letter-spacing: 10px;
-  font-weight: 900;
   color: #ff7eb9;
   text-shadow:
-    0 0 12px rgba(255,126,185,.6),
-    0 0 30px rgba(255,182,213,.8);
+    0 0 15px rgba(255,126,185,.7),
+    0 0 40px rgba(255,182,213,.8);
   animation: floatText 4s ease-in-out infinite;
 }
 
@@ -83,70 +65,69 @@ nav a:hover::after {
   letter-spacing: 2px;
 }
 
-/* ===== DISNEY SPARKLES ===== */
-.title::after {
-  content: "✨ ✨ ✨";
+/* ===== SPARKLES ===== */
+.sparkles {
+  font-size: 20px;
+  color: #ffd6a5;
+  margin-bottom: 10px;
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+
+/* ===== DISNEY STYLE FANTASY CHAR ===== */
+.fantasy {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -50px;
-  font-size: 22px;
-  animation: sparkle 3s infinite alternate;
+  width: 130px;
+  height: 220px;
+  animation: floatChar 4s ease-in-out infinite;
 }
 
-@keyframes sparkle {
-  from { opacity: .3; transform: translateX(-50%) scale(1); }
-  to { opacity: 1; transform: translateX(-50%) scale(1.2); }
-}
-
-/* ===== TOON CHARACTERS ===== */
-.toon {
-  position: absolute;
-  width: 90px;
-  height: 160px;
-  animation: toonFloat 4s ease-in-out infinite;
-}
-
-.toon-left {
-  left: -160px;
-  top: 20px;
-}
-
-.toon-right {
-  right: -160px;
+.fantasy.left {
+  left: -200px;
   top: 40px;
-  animation-delay: 1.8s;
 }
 
-/* หัว */
-.toon .head {
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle at 30% 30%, #fff, #ffd6e8);
-  border-radius: 50%;
-  margin: auto;
-  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+.fantasy.right {
+  right: -200px;
+  top: 60px;
+  animation-delay: 1.5s;
 }
 
-/* เชือก */
-.balloon-string {
-  width: 2px;
-  height: 44px;
-  background: linear-gradient(#ddd, #bbb);
-  margin: 6px auto;
-}
-
-/* ลูกโป่ง */
-.balloon-shape {
-  width: 42px;
-  height: 56px;
-  background: radial-gradient(circle at 30% 30%, #fff, #ff9acb);
+.fantasy .face {
+  width: 95px;
+  height: 95px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffd1e8);
   border-radius: 50%;
   margin: auto;
   box-shadow:
-    0 0 20px rgba(255,154,203,.9),
-    inset 0 0 10px rgba(255,255,255,.8);
+    0 10px 22px rgba(0,0,0,.15),
+    0 0 35px rgba(255,182,213,.9);
 }
+
+.fantasy .balloon {
+  width: 46px;
+  height: 62px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ff9acb);
+  border-radius: 50%;
+  margin: 12px auto 0;
+  box-shadow: 0 0 28px rgba(255,154,203,.9);
+  animation: balloonBounce 3s ease-in-out infinite;
+}
+
+/* ===== BACKGROUND BALLOONS ===== */
+.bg-balloon {
+  position: absolute;
+  bottom: -50px;
+  width: 30px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffb6d5);
+  opacity: .5;
+  animation: balloonFloat 10s linear infinite;
+}
+
+.b1 { left: 15%; animation-delay: 0s; }
+.b2 { left: 50%; animation-delay: 4s; }
+.b3 { left: 80%; animation-delay: 7s; }
 
 /* ===== GALLERY ===== */
 .gallery {
@@ -161,33 +142,41 @@ nav a:hover::after {
   border-radius: 26px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.08);
-  transition: .4s;
-}
-
-.item:hover {
-  transform: translateY(-10px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.08);
 }
 
 .item img {
   width: 100%;
-  border-radius: 18px;
+  border-radius: 20px;
 }
 
 .item p {
   margin-top: 16px;
+  font-weight: 700;
   color: #ff7eb9;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
-/* ===== ANIMATIONS ===== */
+/* ===== ANIMATION ===== */
 @keyframes floatText {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
 
-@keyframes toonFloat {
+@keyframes floatChar {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-16px); }
+}
+
+@keyframes balloonBounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes balloonFloat {
+  to { transform: translateY(-120vh); }
+}
+
+@keyframes sparkle {
+  0%,100% { opacity: .4; }
+  50% { opacity: 1; }
 }
