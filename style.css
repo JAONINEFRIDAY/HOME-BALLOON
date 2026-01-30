@@ -2,101 +2,107 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
   background: #fff;
   color: #111;
+  overflow-x: hidden;
 }
 
 /* NAV */
 .nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 10;
+}
+
+.nav-wrap {
+  max-width: 480px;
+  margin: auto;
+  padding: 10px 14px; /* ↓ ลดความสูงแถบเมนู */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  border-bottom: 1px solid #eee;
 }
 
-.nav a {
-  margin-left: 24px;
-  text-decoration: none;
-  color: #111;
+.logo {
+  font-weight: 700;
   font-size: 14px;
   letter-spacing: 1px;
 }
 
+nav a {
+  margin-left: 14px;
+  text-decoration: none;
+  color: #111;
+  font-size: 13px;
+}
+
 /* HERO */
 .hero {
+  margin-top: 48px; /* ↓ แก้ช่องว่างใหญ่ */
+  padding: 24px 16px 12px;
   text-align: center;
-  padding: 120px 20px 80px;
 }
 
 .hero h1 {
-  font-size: 36px;
-  letter-spacing: 6px;
-  font-weight: 700;
+  font-size: 34px;
+  letter-spacing: 4px;
 }
 
 .hero p {
-  font-size: 13px;
-  letter-spacing: 1px;
-  margin-top: 12px;
-  color: #555;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #777;
 }
 
-/* GALLERY */
+/* GALLERY (Human Made style) */
 .gallery {
-  max-width: 900px;
-  margin: 0 auto 120px;
-  padding: 0 20px;
+  max-width: 480px;
+  margin: auto;
+  padding: 0 12px 80px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .gallery img {
   width: 100%;
-  display: block;
-  animation: fadeUp 0.8s ease both;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  aspect-ratio: 1 / 1;   /* ✅ กรอบสี่เหลี่ยม */
+  object-fit: cover;
+  border-radius: 0;     /* ❌ ไม่โค้ง */
 }
 
-.gallery img:hover {
-  transform: scale(1.04);
-  opacity: 0.92;
+/* BALLOON FLOAT */
+.balloon-bg span {
+  position: fixed;
+  bottom: -120px;
+  width: 48px;
+  height: 64px;
+  background: rgba(255, 200, 200, 0.35);
+  border-radius: 50%;
+  animation: floatUp 16s linear infinite;
+  z-index: 0;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
+.balloon-bg span:nth-child(1) { left: 8%;  animation-delay: 0s; }
+.balloon-bg span:nth-child(2) { left: 25%; animation-delay: 4s; }
+.balloon-bg span:nth-child(3) { left: 45%; animation-delay: 8s; }
+.balloon-bg span:nth-child(4) { left: 65%; animation-delay: 12s; }
+.balloon-bg span:nth-child(5) { left: 85%; animation-delay: 16s; }
+
+@keyframes floatUp {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(0);
+    opacity: 1;
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  border-top: 1px solid #eee;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #777;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding-top: 80px;
+    transform: translateY(-120vh);
+    opacity: 0;
   }
 }
