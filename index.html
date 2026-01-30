@@ -1,67 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HOME BALLOON</title>
-  <link rel="stylesheet" href="css1.css" />
+  <meta charset="UTF-8">
+  <title>Little Present</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css1.css">
 </head>
 <body>
 
-  <!-- floating balloon background -->
-  <div class="balloon-bg">
-    <span></span><span></span><span></span><span></span>
+<header class="top">
+  <h1>Little Present</h1>
+  <p>for my favorite person ♡</p>
+</header>
+
+<section class="page">
+
+  <div class="paper">
+    <h2>Making Something Special</h2>
+    <div class="letter">
+      <img src="images/photo1.jpg" class="polaroid">
+      <p>
+        This is a small website  
+        made just for you.  
+        Not perfect, but full of love 🤍
+      </p>
+    </div>
   </div>
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="nav-wrap">
-      <div class="logo">HOME BALLOON</div>
-      <nav>
-        <a href="#">SHOP</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a>
-      </nav>
+  <div class="paper">
+    <h2>Memories</h2>
+    <div class="grid">
+      <img src="images/photo2.jpg">
+      <img src="images/photo3.jpg">
+      <img src="images/photo4.jpg">
     </div>
-  </header>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero reveal">
-    <h1>HOME BALLOON</h1>
-    <p>Original balloon studio</p>
-  </section>
+  <div class="paper">
+    <h2>One Last Thing</h2>
+    <p class="center">
+      Thank you for being in my life.  
+      I hope this made you smile :)
+    </p>
+  </div>
 
-  <!-- GALLERY -->
-  <section class="gallery">
-
-    <div class="item reveal">
-      <img src="IMG_2448.jpeg" alt="">
-      <p>Rose Gold Balloon</p>
-    </div>
-
-    <div class="item reveal delay-1">
-      <img src="IMG_2450.jpeg" alt="">
-      <p>Luxury Flower Balloon</p>
-    </div>
-
-    <div class="item reveal delay-2">
-      <img src="IMG_2451.jpeg" alt="">
-      <p>Kids Party Balloon</p>
-    </div>
-
-  </section>
-
-  <!-- reveal animation -->
-  <script>
-    const reveal = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('active');
-      });
-    }, { threshold: 0.15 });
-
-    reveal.forEach(el => io.observe(el));
-  </script>
+</section>
 
 </body>
 </html>
