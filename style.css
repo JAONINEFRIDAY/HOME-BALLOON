@@ -19,14 +19,14 @@ body {
   top: 0;
   width: 100%;
   background: #fff;
-  z-index: 10;
+  z-index: 20; /* ⭐ กันทุกอย่างทับ */
   border-bottom: 1px solid #eee;
 }
 
 .nav-wrap {
-  max-width: 520px;          /* ⭐ กว้างขึ้นนิด ดูโปร */
+  max-width: 480px;
   margin: auto;
-  padding: 16px 18px;
+  padding: 14px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,14 +35,14 @@ body {
 .logo {
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
 }
 
 nav a {
-  margin-left: 20px;
+  margin-left: 18px;
   text-decoration: none;
   font-size: 12px;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: #111;
   opacity: 0.75;
 }
@@ -55,14 +55,14 @@ nav a:hover {
 /* BANNER */
 /* ===================== */
 .banner {
-  margin-top: 64px;        /* ⭐ หายใจจาก nav */
+  margin-top: 56px; /* ความสูง nav */
   width: 100%;
   overflow: hidden;
 }
 
 .banner img {
   width: 100%;
-  height: 46vh;            /* ⭐ สัดส่วนมือถือดีที่สุด */
+  height: 48vh;        /* ⭐ ต่ำลง = ดูหรู */
   object-fit: cover;
   display: block;
 }
@@ -71,35 +71,34 @@ nav a:hover {
 /* HERO */
 /* ===================== */
 .hero {
-  padding: 44px 16px 36px; /* ⭐ ดูเป็นแบรนด์ */
+  padding: 36px 16px 30px; /* ⭐ เว้นจาก banner + nav */
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 34px;
-  letter-spacing: 5px;
+  font-size: 32px;        /* ⭐ ไม่ใหญ่เกินมือถือ */
+  letter-spacing: 4px;
 }
 
 .hero p {
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 13px;
   color: #777;
-  letter-spacing: 1.4px;
 }
 
 /* ===================== */
 /* GALLERY */
 /* ===================== */
 .gallery {
-  max-width: 520px;
+  max-width: 480px;
   margin: auto;
-  padding: 20px 14px 96px;  /* ⭐ โปร่ง ลื่น */
+  padding: 20px 12px 90px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 16px;
-  row-gap: 34px;
+  column-gap: 14px;
+  row-gap: 32px;
   position: relative;
-  z-index: 2;
+  z-index: 5;
 }
 
 /* ITEM */
@@ -117,11 +116,11 @@ nav a:hover {
 
 /* PRODUCT NAME */
 .product-name {
-  margin-top: 14px;
+  margin-top: 12px;
   font-size: 12px;
   color: #666;
-  letter-spacing: 1.2px;
-  line-height: 1.7;
+  letter-spacing: 1px;
+  line-height: 1.6;
 }
 
 /* ===================== */
@@ -139,7 +138,7 @@ nav a:hover {
   bottom: -120px;
   width: 44px;
   height: 60px;
-  background: rgba(255, 210, 210, 0.2); /* ⭐ เบาลง ดูแพง */
+  background: rgba(255, 210, 210, 0.22); /* ⭐ เบามาก */
   border-radius: 50%;
   animation: floatUp 18s linear infinite;
 }
@@ -153,7 +152,7 @@ nav a:hover {
 @keyframes floatUp {
   from {
     transform: translateY(0);
-    opacity: 0.7;
+    opacity: 0.6;
   }
   to {
     transform: translateY(-130vh);
@@ -166,16 +165,16 @@ nav a:hover {
 /* ===================== */
 @media (min-width: 768px) {
   .banner img {
-    height: 72vh;          /* ⭐ เดสก์ท็อปอลัง */
+    height: 68vh;
   }
 
   .gallery {
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 22px;
-    row-gap: 42px;
+    column-gap: 18px;
+    row-gap: 36px;
   }
 
   .hero h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
 }
