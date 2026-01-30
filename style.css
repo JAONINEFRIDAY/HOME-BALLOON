@@ -49,15 +49,30 @@ nav a:hover {
   opacity: 1;
 }
 
+/* ===================== */
+/* BANNER */
+/* ===================== */
+.banner {
+  margin-top: 56px; /* กันชน nav */
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  display: block;
+}
+
 /* HERO */
 .hero {
-  margin-top: 56px;
-  padding: 32px 16px 24px;
+  padding: 28px 16px 20px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 34px;
   letter-spacing: 4px;
 }
 
@@ -75,7 +90,7 @@ nav a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 12px;
-  row-gap: 26px; /* ⭐ เพิ่มช่องไฟบน-ล่าง */
+  row-gap: 26px;
   position: relative;
   z-index: 2;
 }
@@ -95,7 +110,7 @@ nav a:hover {
 
 /* PRODUCT NAME */
 .product-name {
-  margin-top: 10px; /* ⭐ ช่องไฟระหว่างรูปกับชื่อ */
+  margin-top: 10px;
   font-size: 12px;
   color: #666;
   letter-spacing: 1px;
@@ -137,8 +152,12 @@ nav a:hover {
   }
 }
 
-/* TABLET / DESKTOP */
+/* DESKTOP */
 @media (min-width: 768px) {
+  .banner img {
+    height: 80vh;
+  }
+
   .gallery {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 16px;
