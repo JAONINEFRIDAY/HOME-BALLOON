@@ -1,71 +1,62 @@
-/* =========================
-   RESET
-========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   BODY
-========================= */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    Helvetica, Arial, sans-serif;
-  background: #ffffff;
+  background: #fff;
   color: #111;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAV */
 .nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 48px;
+  background: white;
+  z-index: 10;
 }
 
 .logo {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 1px;
 }
 
 .nav nav a {
-  margin-left: 32px;
-  text-decoration: none;
-  color: #111;
+  margin-left: 24px;
   font-size: 13px;
-  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .hero {
+  height: 100vh;
+  padding-top: 120px;
   text-align: center;
-  padding: 160px 20px 120px;
   position: relative;
   overflow: hidden;
 }
 
 .hero h1 {
-  font-size: 56px;
-  font-weight: 800;
-  letter-spacing: 6px;
+  font-size: 64px;
+  letter-spacing: 4px;
 }
 
 .hero p {
-  margin-top: 16px;
+  margin-top: 10px;
   font-size: 14px;
   color: #777;
 }
 
-/* =========================
-   FLOATING BALLOONS
-========================= */
+/* BALLOONS */
 .floating-balloons {
   position: absolute;
   inset: 0;
@@ -76,107 +67,71 @@ body {
   position: absolute;
   width: 90px;
   height: 120px;
-  background: rgba(233, 198, 198, 0.4);
+  background: rgba(232, 200, 200, 0.35);
   border-radius: 50%;
-  animation: float 8s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .balloon::after {
   content: "";
   position: absolute;
-  bottom: -25px;
-  left: 50%;
   width: 2px;
-  height: 30px;
-  background: rgba(200, 200, 200, 0.6);
+  height: 40px;
+  background: rgba(0,0,0,0.15);
+  left: 50%;
+  top: 100%;
 }
 
 .b1 { left: 10%; top: 20%; animation-delay: 0s; }
-.b2 { left: 30%; top: 60%; animation-delay: 2s; }
-.b3 { left: 65%; top: 30%; animation-delay: 4s; }
-.b4 { left: 85%; top: 65%; animation-delay: 1s; }
+.b2 { left: 30%; top: 60%; animation-delay: 1s; }
+.b3 { left: 65%; top: 30%; animation-delay: 2s; }
+.b4 { left: 85%; top: 70%; animation-delay: 3s; }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
 }
 
-/* =========================
-   PRODUCTS GRID
-========================= */
+/* PRODUCTS */
 .products {
+  padding: 60px 40px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  padding: 60px;
-}
-
-.item {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: #f4f4f4;
 }
 
 .item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+  display: block;
 }
 
-.item:hover img {
-  transform: scale(1.05);
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 12px;
+  color: #777;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 1024px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
-  }
-}
-
-@media (max-width: 600px) {
+/* MOBILE */
+@media (max-width: 768px) {
 
   .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 20px;
-  }
-
-  .nav nav {
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav nav a {
-    margin-left: 0;
-    font-size: 12px;
-  }
-
-  .hero {
-    padding: 100px 20px 60px;
+    padding: 16px;
   }
 
   .hero h1 {
-    font-size: 34px;
-    letter-spacing: 3px;
+    font-size: 36px;
   }
 
-  .hero p {
-    font-size: 13px;
+  .balloon {
+    width: 60px;
+    height: 80px;
   }
 
   .products {
     grid-template-columns: 1fr;
     padding: 24px;
-  }
-
-  .floating-balloons {
-    opacity: 0.25;
   }
 }
