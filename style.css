@@ -7,12 +7,13 @@
 
 /* BODY */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
   color: #111;
+  background: #fff;
 }
 
-/* NAVBAR */
+/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -38,7 +39,7 @@ body {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 140px 20px 120px;
+  padding: 120px 20px 100px;
 }
 
 .hero h1 {
@@ -57,14 +58,14 @@ body {
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 40px;
   padding: 60px;
 }
 
-/* ITEM = กล่องครอบรูป */
+/* ITEM */
 .item {
   width: 100%;
-  aspect-ratio: 1 / 1;   /* 🔥 ทำให้ทุกช่องเป็นสี่เหลี่ยมเท่ากัน */
+  aspect-ratio: 4 / 5; /* ⭐ ทางเลือกที่ 3 */
   overflow: hidden;
   background: #f4f4f4;
 }
@@ -73,12 +74,11 @@ body {
 .item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* 🔥 ครอปรูปอัตโนมัติ ไม่บิด */
-  display: block;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 .item:hover img {
   transform: scale(1.05);
 }
