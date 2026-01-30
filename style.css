@@ -2,119 +2,101 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 }
 
 body {
   background: #fff;
   color: #111;
-  overflow-x: hidden;
 }
 
-/* ================= NAV ================= */
+/* NAV */
 .nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 100;
-}
-
-.nav-wrap {
-  max-width: 520px;
-  margin: auto;
-  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
 }
 
-.logo {
+.nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: #111;
   font-size: 14px;
-  font-weight: 700;
   letter-spacing: 1px;
 }
 
-nav a {
-  margin-left: 16px;
-  font-size: 12px;
-  text-decoration: none;
-  color: #111;
-}
-
-/* ================= HERO ================= */
+/* HERO */
 .hero {
-  margin-top: 56px;              /* ลดช่องว่างบน */
-  padding: 24px 16px 8px;
   text-align: center;
+  padding: 120px 20px 80px;
 }
 
 .hero h1 {
-  font-size: 34px;
-  letter-spacing: 4px;
+  font-size: 36px;
+  letter-spacing: 6px;
+  font-weight: 700;
 }
 
 .hero p {
-  margin-top: 6px;
   font-size: 13px;
-  color: #777;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  color: #555;
 }
 
-/* ================= GALLERY ================= */
+/* GALLERY */
 .gallery {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 12px 12px 80px;
+  max-width: 900px;
+  margin: 0 auto 120px;
+  padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
 .gallery img {
   width: 100%;
-  aspect-ratio: 1 / 1;   /* สี่เหลี่ยมแบบ Human Made */
-  object-fit: cover;
-  border-radius: 0;
-  background: #f3f3f3;
+  display: block;
+  animation: fadeUp 0.8s ease both;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* ================= BALLOON FLOAT ================= */
-.balloon-bg span {
-  position: fixed;
-  bottom: -120px;
-  width: 48px;
-  height: 64px;
-  background: rgba(255, 200, 200, 0.35);
-  border-radius: 50%;
-  animation: floatUp 18s linear infinite;
-  z-index: -1;
+.gallery img:hover {
+  transform: scale(1.04);
+  opacity: 0.92;
 }
 
-.balloon-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
-.balloon-bg span:nth-child(2) { left: 30%; animation-delay: 4s; }
-.balloon-bg span:nth-child(3) { left: 50%; animation-delay: 8s; }
-.balloon-bg span:nth-child(4) { left: 70%; animation-delay: 12s; }
-.balloon-bg span:nth-child(5) { left: 85%; animation-delay: 16s; }
-
-@keyframes floatUp {
+/* ANIMATION */
+@keyframes fadeUp {
   from {
-    transform: translateY(0);
-    opacity: 1;
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: translateY(-130vh);
-    opacity: 0;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ================= iPAD / DESKTOP ================= */
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 42px;
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid #eee;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
   }
 
-  .gallery {
-    max-width: 520px;
+  .hero {
+    padding-top: 80px;
   }
 }
