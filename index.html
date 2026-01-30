@@ -1,29 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOME BALLOON</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME BALLOON</title>
 
-<!-- BALLOON FLOAT -->
-<div class="balloon-bg">
-  <span></span><span></span><span></span>
-  <span></span><span></span>
-</div>
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: #fff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  z-index: 100;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.nav a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #111;
+  margin-left: 14px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 34px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  padding: 40px 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ===== BALLOONS ===== */
+.balloons {
+  position: fixed;
+  left: 0;
+  bottom: -200px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  background: #f6eaea;
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  width: 1px;
+  height: 40px;
+  background: #ccc;
+}
+
+.balloon:nth-child(1) { left: 10%; animation-duration: 14s; }
+.balloon:nth-child(2) { left: 40%; animation-duration: 18s; }
+.balloon:nth-child(3) { left: 70%; animation-duration: 16s; }
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* ===== MOBILE OPT ===== */
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
 
 <!-- NAV -->
 <header class="nav">
-  <div class="nav-wrap">
-    <div class="logo">HOME BALLOON</div>
-    <nav>
-      <a href="#">Shop</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </div>
+  <div class="logo">HOME BALLOON</div>
+  <nav>
+    <a href="#">SHOP</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CONTACT</a>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -34,13 +158,19 @@
 
 <!-- GALLERY -->
 <section class="gallery">
-  <img src="IMG_2447.jpeg">
   <img src="IMG_2448.jpeg">
   <img src="IMG_2450.jpeg">
   <img src="IMG_2451.jpeg">
   <img src="IMG_2452.jpeg">
   <img src="IMG_2459.jpeg">
 </section>
+
+<!-- BALLOON ANIMATION -->
+<div class="balloons">
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+</div>
 
 </body>
 </html>
