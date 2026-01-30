@@ -139,3 +139,55 @@ nav a {
     transform: translateY(-120vh);
   }
 }
+/* ===== TOON CHARACTERS ===== */
+.toon {
+  position: absolute;
+  width: 90px;
+  height: 160px;
+  animation: toonFloat 4s ease-in-out infinite;
+}
+
+.toon-left {
+  left: -140px;
+  top: 20px;
+}
+
+.toon-right {
+  right: -140px;
+  top: 40px;
+  animation-delay: 1.5s;
+}
+
+/* หัวตัวละคร */
+.toon .head {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffd6e8);
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+
+/* เชือกลูกโป่ง */
+.balloon-string {
+  width: 2px;
+  height: 40px;
+  background: #ccc;
+  margin: 4px auto;
+}
+
+/* ลูกโป่ง */
+.balloon-shape {
+  width: 40px;
+  height: 52px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ff9acb);
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 0 0 18px rgba(255,154,203,.8);
+}
+
+/* Animation */
+@keyframes toonFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
